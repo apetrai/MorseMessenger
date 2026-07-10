@@ -24,7 +24,8 @@ public:
 
     void setOnClick(std::function<void()> callback);
     void handleEvent(const sf::Event& event, const sf::RenderWindow& window);
-    void update(const sf::RenderWindow& window);
+    void Event(std::function<void()> callback);
+    void update(const sf::RenderWindow &window);
     void draw(sf::RenderWindow& window) const;
 
 }; 

@@ -22,4 +22,18 @@ class Client : public ChatSystem {
             }
                 socket.send("Online", sizeof("Online"));
         }
+        void send() {
+            status = socket.connect("127.0.0.1", PORT);
+
+            if (status != sf::Socket::Done) {
+                std::cout << "Connection failed\n";
+                return;
+            }
+
+
+            packet << this->Username << this->buffer;
+
+            if (socket.send(packet) == sf::Socket::Done) std::cout << "Message sent!\n";
+                else std::cout << "Failed to send.\n";
+        }
 };

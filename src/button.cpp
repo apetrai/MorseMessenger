@@ -1,5 +1,6 @@
 #include "../include/button.h"
 
+
 Button::Button(const sf::Vector2f& position, const sf::Vector2f& size,
                const std::string& buttonText, const sf::Font& font,
                const sf::Color& defaultColor, const sf::Color& hoverColor,
@@ -31,6 +32,8 @@ Button::Button(const sf::Vector2f& position, const sf::Vector2f& size,
 void Button::setOnClick(std::function<void()> callback) {
     onClick = callback;
 }
+
+
 
 void Button::handleEvent(const sf::Event& event, const sf::RenderWindow& window) {
     if (event.type == sf::Event::MouseButtonPressed) {

@@ -29,10 +29,8 @@ int main()
     Textbox textbox(25, sf::Color::White, true,
         {20, 20}, sf::Color(0, 0, 0, 75));
         textbox.setFont(Roboto);
-        //textbox.setPosition({20,20});
-        
-        // Create a button
-        Button myButton(
+
+        Button SendButton(
             sf::Vector2f(20, 400),  // Position
             sf::Vector2f(200, 50),   // Size
             "Send",             // Text
@@ -42,14 +40,12 @@ int main()
             sf::Color(150, 150, 150)  // Click color
         );
         
-        // Set button click callback
-        myButton.setOnClick([&textbox]()
-                            {
-            //textbox.setText("Button was clicked!");
-            Client user;
-            textbox.getText() = user.buffer;
-            user.recieve();
-        
+        Client user; //Establish user
+
+        SendButton.setOnClick([&textbox, &user]()
+        {
+            user.buffer = textbox.getText();
+            user.send(); 
         });
 
         sf::View view(sf::FloatRect(0, 0, 900, 900)); // Default view of the window.
@@ -103,17 +99,18 @@ int main()
                 }
 
                 // Handle button events
-                myButton.handleEvent(event, WIN.window);
+                SendButton.handleEvent(event, WIN.window);
             }
 
             // Update button state
-            myButton.update(WIN.window);
+            SendButton.update(WIN.window);
+
 
             textbox.update();
 
             WIN.window.clear(sf::Color(45, 45, 68, 1));
             textbox.drawTo(WIN.window);
-            myButton.draw(WIN.window);
+            SendButton.draw(WIN.window);
             WIN.window.display();
         }
 
