@@ -32,9 +32,9 @@ The project demonstrates the use of C++ for network communication, real-time mes
 2. Compile the project.
     - Run ```cmake . ``` to download the SFML libraries and link all of the source files.
     - There are now two seperate binary executables to compile:
-      - For the server app run ```make ServerApp``` to produce the execuatble, then ```./bin/ServerApp```
+      - For the server app run ```make ServerApp``` to produce the executable, then ```./bin/ServerApp```
       OR:
-      - For the client app run ```make ClientApp``` to produce the execuatble, then ```./bin/ClientApp```
+      - For the client app run ```make ClientApp``` to produce the executable, then ```./bin/ClientApp```
       
   
 ## Documentation
